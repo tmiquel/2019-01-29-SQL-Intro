@@ -1,0 +1,32 @@
+CREATE TABLE `link` (
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `url` TEXT
+);
+
+CREATE TABLE `commentaire` (
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `author_id` INTEGER,
+  `auteur` TEXT,
+  `description` TEXT,
+  `commentaire` INTEGER,
+  FOREIGN KEY(commentaire) REFERENCES commentaire(id)
+);
+
+CREATE TABLE `user` (
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `nom` TEXT,
+  `email` TEXT
+);
+
+
+
+CREATE TABLE `link-commentaire` (
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id_link` INTEGER,
+  `id_commentaire` INTEGER,
+  FOREIGN KEY(id_commentaires) REFERENCES commentaire(id),
+  FOREIGN KEY(id_pin) REFERENCES pin(id)
+);
+
+
+

@@ -1,0 +1,27 @@
+CREATE TABLE `pin-commentaire` (
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id_pin` INTEGER,
+  `id_commentaire` INTEGER,
+    FOREIGN KEY(id_pin) REFERENCES pin(id)
+    FOREIGN KEY(id_commentaires) REFERENCES commentaire(id)
+);
+
+CREATE TABLE `pin` (
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `url_image` TEXT,
+);
+
+CREATE TABLE `commentaire` (
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `author_id` INTEGER,
+  `auteur` TEXT,
+  `description` TEXT,
+  FOREIGN KEY(author_id) REFERENCES user(id)
+);
+
+CREATE TABLE `user` (
+  `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+  `nom` TEXT,
+  `email` TEXT,
+);
+

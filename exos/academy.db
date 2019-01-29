@@ -1,0 +1,20 @@
+CREATE TABLE `cours` (
+  `id`  INTEGER PRIMARY KEY AUTOINCREMENT,
+  `titre` TEXT,
+  `description` TEXT,
+);
+
+CREATE TABLE `lecons` (
+  `id`  INTEGER PRIMARY KEY AUTOINCREMENT,
+  `titre` TEXT,
+  `description` TEXT,
+);
+
+CREATE TABLE `cours-lecons` (
+  `id`  INTEGER PRIMARY KEY AUTOINCREMENT,
+  `id_cours` INTEGER,
+  `id_lecon` INTEGER,
+  FOREIGN KEY(id_cours) REFERENCES cours(id),
+  FOREIGN KEY(id_lecons) REFERENCES lecons(id)
+);
+

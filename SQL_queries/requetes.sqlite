@@ -1,0 +1,56 @@
+
+    Récupérer tous les albums
+    .mode column;
+    .header on;
+
+    SELECT * from albums;
+
+
+    AlbumId     Title                                  ArtistId  
+
+
+    Récupérer tous les albums dont le titre contient "Great" (indice)
+
+    SELECT * from albums WHERE Title LIKE '%great%';
+
+    Donner le nombre total d'albums contenus dans la base (sans regarder les id bien sûr)
+
+    SELECT COUNT(AlbumID) FROM 'albums';
+
+    Supprimer tous les albums dont le nom contient "music"
+
+    DELETE FROM albums WHERE Title LIKE '%music%';
+
+    Récupérer tous les albums écrits par AC/DC
+
+    sqlite> SELECT Artists.Name, Albums.Title FROM Albums
+   ...> INNER JOIN Artists ON (Artists.ArtistId=Albums.ArtistId AND
+   ...> Artists.ArtistId = 1);
+
+
+    Récupérer tous les titres des albums de AC/DC
+
+        sqlite> SELECT Artists.Name, Albums.Title FROM Albums
+   ...> INNER JOIN Artists ON (Artists.ArtistId=Albums.ArtistId AND
+   ...> Artists.ArtistId = 1);
+
+
+    Récupérer la liste des titres de l'album "Let There Be Rock"
+
+SELECT Albums.Title, Tracks.Name FROM Albums INNER JOIN Tracks ON (Albums.AlbumId=Tracks.AlbumId AND Albums.AlbumId = 4);
+
+    Afficher le prix de cet album ainsi que sa durée totale
+
+    SELECT SUM(Milliseconds) FROM tracks WHERE TrackId IN (SELECT TrackId FROM Tracks WHERE AlbumId = 4);
+
+    SELECT SUM(UnitPrice) FROM tracks WHERE TrackId IN (SELECT TrackId FROM Tracks WHERE AlbumId = 4);
+
+    Afficher le coût de l'intégralité de la discographie de "Deep Purple"
+
+    SELECT SUM(UnitPrice) FROM tracks WHERE TrackId IN (SELECT TrackId FROM Tracks WHERE AlbumId IN ( SELECT AlbumId FROM albums where ArtistId in (SELECT artistid from artists where name ='Deep Purple')));
+
+    91 EUR
+
+    Créer l'album de ton artiste favori en base, en renseignant correctement les trois tables albums, artists et tracks
+
+

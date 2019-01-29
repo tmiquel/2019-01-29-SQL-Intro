@@ -1,0 +1,29 @@
+user 
+1 Thibaut
+2 Remy
+
+article 
+1  2 'L'OM' 'Droit au but'
+2  1 'ASM'  'Meilleur club de rugby'
+
+Category
+1 football
+2 rugby
+3 velodrome
+4 Clermont
+
+Category_per_article
+1 1 1
+2 1 3
+3 2 2
+4 2 4
+
+Tag
+1 sport rouge
+2 ville bleu
+3 stade jaune
+
+
+
+
+
